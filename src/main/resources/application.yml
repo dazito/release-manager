@@ -1,0 +1,23 @@
+spring:
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+      naming:
+        # Make JPA use camelCase for column and table names instead of snake_case
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  datasource:
+    url: jdbc:h2:mem:mode=mysql:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    tomcat:
+      testWhileIdle: true
+      validationQuery: SELECT 1
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
